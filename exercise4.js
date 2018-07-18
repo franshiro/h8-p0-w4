@@ -5,7 +5,7 @@ function cariModus(arr) {
     var counter  = 0
     for(var i=0; i<arr.length; i++){
         // console.log('ini adalah i ke', i)
-        for(j=i+1; j<arr.length; j++){
+        for(var j=i+1; j<arr.length; j++){
             // console.log(j)
             if(arr[i] === arr[j]){
                 // console.log(arr[i], 'ini kembar')
