@@ -2,12 +2,11 @@ function changeMe(arr) {
     // you can only write your code here!
     // console.log(arr.length)
     var strObj = ['firstName', 'lastName', 'gender', 'age']
-    var hasilObj = {}
-    var tampung = []
+    var hasilObj = new Object
+    // var namaObj = arr[i][0] + ' ' +arr[i][1]
     for(var i = 0; i<arr.length; i++){
         console.log(arr[i])
-        tampung.push([])
-        
+        // hasilObj.(arr[i][0] + ' ' +arr[i][1]) = 
         for(var j = 0; j < strObj.length; j++){
             // console.log(strObj[j])
             for(var k = j; k< strObj.length; k++){
@@ -28,9 +27,8 @@ function changeMe(arr) {
         }
         
     }
-//     console.log(tampung, 'ini tampung')
-//     console.log(hasilObj, 'ini object')
-//   }
+
+  }
   
   // TEST CASES
   changeMe([['Christ', 'Evans', 'Male', 1982], ['Robert', 'Downey', 'Male', 2019]]); 
