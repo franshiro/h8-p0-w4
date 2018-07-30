@@ -6,6 +6,8 @@ function shoppingTime(memberId, money) {
     // Baju brand H&N seharga 250000
     // Sweater brand Uniklooh seharga 175000
     // Casing Handphone seharga 50000
+
+    var dataProduk = [['Sepatu Stacattu', 1500000], ['Baju Zoro', 500000], ['Baju H&N', 250000],['Sweater Uniklooh', 175000],['Casing Handphone', 50000]]
     
     if(memberId === '' || memberId === undefined){
         return 'Mohon maaf, toko X hanya berlaku untuk member'
@@ -15,42 +17,27 @@ function shoppingTime(memberId, money) {
         return 'Mohon maaf, uang tidak cukup'
     }
     else if(memberId !== '' ){
-        
-        // return memberId + '\n' + money
-        var lp = []
-        // var uang = money - sisa
-        while(money >= 50000){
-            if(money  > 1500000){
-                lp.push('Sepatu Stacattu')
-                money = money - 1500000
-            } 
-            else if(money > 500000){
-                lp.push('Baju Zoro')
-                money = money - 500000
-            }
-            else if(money > 250000){
-                lp.push('Baju H&N')
-                money = money - 250000
-            }
-            else if(money > 175000){
-                lp.push('Sweater Uniklooh')
-                money = money - 175000
-            }
-            else if(money >= 50000 ){
-                lp.push('Casing Handphone')
-                money = money - 50000
-                break;
-            }
+      var dataPembelian = {
+        memberId : memberId,
+        money : money
+      }
+      var tampung = []
+      for(var i = 0; i < dataProduk.length ; i++){
+        var harga = dataProduk[i][1]
+        var namaProduk = dataProduk[i][0]
+        // console.log(dataProduk[i])
+
+        if(money >= harga){
+          
+          money -= harga
+          tampung.push(namaProduk)
+          
         }
-        // var dataPembeli = ['memberId', 'money', 'lp', 'changeMoney']
-        var dataPembeli =  {
-            'memberId' : memberId,
-            'money' : money,
-            'listPurchased' : lp,
-            'changeMoney' : money
-        }
-        return dataPembeli
+      }
+      dataPembelian.listPurchased = tampung
+      dataPembelian.changeMoney = money
     }
+    return dataPembelian
   }
   
   // TEST CASES
@@ -65,7 +52,7 @@ function shoppingTime(memberId, money) {
 //        'Casing Handphone' ],
 //     changeMoney: 0 }
 console.log('-------------------------------------------------------------')
-  console.log(shoppingTime('82Ku8Ma742', 170000));
+console.log(shoppingTime('82Ku8Ma742', 170000));
   //{ memberId: '82Ku8Ma742',
   // money: 170000,
   // listPurchased:
